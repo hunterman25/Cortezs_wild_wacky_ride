@@ -1,0 +1,51 @@
+table.insert(printingText,("obj" .. screenText))
+objName=("obj" .. screenText)
+printingText[objName]={}
+for i,v in ipairs(processText) do
+	if i <= 3 then
+		table.insert(printingText[objName],v)
+	else
+		function queue(inp,outp)
+			if v == inp then
+				table.insert(printingText[objName],outp)
+			end
+		end
+		queue("a",lowerA)
+		queue("b",lowerB)
+		queue("c",lowerC)
+		queue("d",lowerD)
+		queue("e",lowerE)
+		queue("f",lowerF)
+		queue("g",lowerG)
+		queue("h",lowerH)
+		queue("i",lowerI)
+		queue("j",lowerJ)
+		queue("k",lowerK)
+		queue("l",lowerL)
+		queue("m",lowerM)
+		queue("n",lowerN)
+		queue("o",lowerO)
+		queue("p",lowerP)
+		queue("q",lowerQ)
+		queue("r",lowerR)
+		queue("s",lowerS)
+		queue("t",lowerT)
+		queue("u",lowerU)
+		queue("v",lowerV)
+		queue("w",lowerW)
+		queue("x",lowerX)
+		queue("y",lowerY)
+		queue("z",lowerZ)
+		queue("ā",lowerNahA)
+		queue("ī",lowerNahI)
+		queue("ē",lowerNahE)
+		queue("ō",lowerNahO)
+		queue("á",lowerÁ)
+		queue("í",lowerÍ)
+		queue("ú",lowerÚ)
+		queue("é",lowerÉ)
+		queue("ó",lowerÓ)
+		queue("ñ",lowerÑ)
+		queue(" ",space)
+	end
+end
