@@ -1,5 +1,0 @@
-Compile game files into YOURFILE.love and then use the following command.
-
-copy /b love.exe+YOURFILE.love YOURFILE.exe
-
-feel free to delete this file as well as love.exe and the .love file when all said and done.
