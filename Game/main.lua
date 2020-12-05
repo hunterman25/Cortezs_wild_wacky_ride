@@ -63,7 +63,7 @@ function love.update(dt)
 		text("hey",100,100,1.5)
 	end
 	if love.keyboard.isDown("h") then
-		text("it works :)",100,200,1)
+		text("Á Ññ It works :)",100,200,1)
 	end
 	if love.keyboard.isDown("j") then
 		resetText()
