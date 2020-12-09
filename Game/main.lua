@@ -63,7 +63,7 @@ function love.update(dt)
 		text("hey",100,100,1.5)
 	end
 	if love.keyboard.isDown("h") then
-		text("Á Ññ It works :)",100,200,1)
+		text("AÁā Ññ It works :)",100,200,1)
 	end
 	if love.keyboard.isDown("j") then
 		resetText()
@@ -75,7 +75,7 @@ function love.draw() -- DEFAULT SCREEN DIMENSIONS: 600 by 600
 	newRectangle(0,0,600,600)
 	love.graphics.setColor(255,0,0)
 	love.graphics.rectangle("fill",x,y,50*ratio,50*ratio)
-
+	
 	--# TEXT #--
 	if printing == true then
 		printText()
