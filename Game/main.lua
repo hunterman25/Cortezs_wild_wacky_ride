@@ -23,10 +23,32 @@ function love.load()
 		love.graphics.rectangle("fill",x*ratio,y*ratio,l*ratio,h*ratio)
 	end
 	function text(content,x,y,size)
+		local countdown=0
+		local cat=""
 		screenText=screenText+1
 		processText={x,y,size}
 		for ch in string.gmatch(content,".") do
-			table.insert(processText,ch)
+			if ch == "{" then
+				countdown=3
+			end
+			if countdown == 0 then
+				table.insert(processText,ch)
+			else
+				if countdown == 2 then
+					local compare=tonumber(ch)
+					if compare ~= nil then
+						if compare == 1 then
+							cat="Spa"
+						elseif compare == 2 then
+							cat="Nah"
+						end
+					end
+				end
+				if countdown == 1 then
+					table.insert(processText,(cat .. ch))
+				end
+				countdown=countdown-1
+			end
 		end
 		doText()
 		printing=true
@@ -63,7 +85,7 @@ function love.update(dt)
 		text("hey",100,100,1.5)
 	end
 	if love.keyboard.isDown("h") then
-		text("AÁā Ññ It works :)",100,200,1)
+		text("A{1a{2a {1N{1n It works :)",100,200,1)
 	end
 	if love.keyboard.isDown("j") then
 		resetText()
@@ -75,7 +97,6 @@ function love.draw() -- DEFAULT SCREEN DIMENSIONS: 600 by 600
 	newRectangle(0,0,600,600)
 	love.graphics.setColor(255,0,0)
 	love.graphics.rectangle("fill",x,y,50*ratio,50*ratio)
-	
 	--# TEXT #--
 	if printing == true then
 		printText()
