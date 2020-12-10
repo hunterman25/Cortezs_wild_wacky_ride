@@ -1,4 +1,4 @@
-love.graphics.setColor(255,0,255)
+love.graphics.setColor(255,255,255)
 for a,objs in ipairs(printingText) do
 	sizeExtremity=0
 	for i,v in ipairs(printingText[objs]) do
