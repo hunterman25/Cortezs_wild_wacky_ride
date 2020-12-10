@@ -63,7 +63,7 @@ function love.load()
 				countdown=countdown-1
 			end
 			if firstChar == true and ch == ":" then
-				
+				selected=true
 			end
 			firstChar=false
 		end
