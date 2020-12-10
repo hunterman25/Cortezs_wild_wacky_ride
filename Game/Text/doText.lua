@@ -155,5 +155,6 @@ for i,v in ipairs(processText) do
 		queue("SelSpaO",upperSelSpaO)
 		queue("SelSpaN",upperSelSpaN)
 		queue(" ",space)
+		queue("Sel ",space)
 	end
 end
