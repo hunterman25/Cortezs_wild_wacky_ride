@@ -23,16 +23,25 @@ function love.load()
 		love.graphics.rectangle("fill",x*ratio,y*ratio,l*ratio,h*ratio)
 	end
 	function text(content,x,y,size)
+		local firstChar=true
+		local selected=false
 		local countdown=0
 		local cat=""
 		screenText=screenText+1
 		processText={x,y,size}
 		for ch in string.gmatch(content,".") do
+			if firstChar == true and ch == ":" then
+				selected=true
+			end
 			if ch == "{" then
 				countdown=3
 			end
 			if countdown == 0 then
-				table.insert(processText,ch)
+				if selected == true then
+					table.insert(processText,("Sel" .. ch))
+				else
+					table.insert(processText,ch)
+				end
 			else
 				if countdown == 2 then
 					local compare=tonumber(ch)
@@ -45,10 +54,18 @@ function love.load()
 					end
 				end
 				if countdown == 1 then
-					table.insert(processText,(cat .. ch))
+					if selected == true then
+						table.insert(processText,("Sel" .. cat .. ch))
+					else
+						table.insert(processText,(cat .. ch))
+					end
 				end
 				countdown=countdown-1
 			end
+			if firstChar == true and ch == ":" then
+				
+			end
+			firstChar=false
 		end
 		doText()
 		printing=true
@@ -85,7 +102,7 @@ function love.update(dt)
 		text("hey",100,100,1.5)
 	end
 	if love.keyboard.isDown("h") then
-		text("A{1a{2a {1N{1n It works :)",100,200,1)
+		text(":A{1a{2a {1N{1n It works :)",100,200,1)
 	end
 	if love.keyboard.isDown("j") then
 		resetText()
