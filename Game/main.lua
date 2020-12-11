@@ -12,23 +12,28 @@ function love.load()
 	printing=false
 	printingText={}
 	screenText=0
+	allowOpen=true
+	allowClose=false
 	--# FILE MANAGEMENT #--
 	resizeLarge=assert(loadfile("Game\\Resize\\resizeLarge.lua"))
 	resizeSmall=assert(loadfile("Game\\Resize\\resizeSmall.lua"))
 	dofile("Game\\Text\\loadText.lua")
 	doText=assert(loadfile("Game\\Text\\doText.lua"))
 	printText=assert(loadfile("Game\\Text\\printText.lua"))
+	openMenu=assert(loadfile("Game\\Warehouse\\menu.lua"))
 	--# FUNCTIONS #--
 	function newRectangle(x,y,l,h)
 		love.graphics.rectangle("fill",x*ratio,y*ratio,l*ratio,h*ratio)
 	end
 	function text(content,x,y,size)
+
 		local firstChar=true
 		local selected=false
 		local countdown=0
 		local cat=""
 		screenText=screenText+1
 		processText={x,y,size}
+
 		for ch in string.gmatch(content,".") do
 			if firstChar == true and ch == ":" then
 				selected=true
@@ -78,6 +83,7 @@ function love.load()
 end
 
 function love.update(dt)
+	--CONTROLS--
 	if love.keyboard.isDown("f") and large~=true then
 		resizeLarge()
 		large=true
@@ -107,11 +113,30 @@ function love.update(dt)
 	if love.keyboard.isDown("j") then
 		resetText()
 	end
+	local menuCheck=love.keyboard.isDown("e")
+	if menuCheck == true and allowOpen == true then
+		menu=true
+		allowOpen=false
+	end
+	if menu == true and menuCheck == false then
+		allowClose=true
+	end
+	if menuCheck == true and allowClose == true then
+		menu=false
+		allowClose=false
+	end
+	if menu == false and menuCheck == false then
+		allowOpen=true
+	end
 end
 
 function love.draw() -- DEFAULT SCREEN DIMENSIONS: 600 by 600
 	love.graphics.setColor(0,255,0)
 	newRectangle(0,0,600,600)
+	if menu == true then
+		openMenu()
+	end
+	--# CHARACTER #--
 	love.graphics.setColor(255,0,0)
 	love.graphics.rectangle("fill",x,y,50*ratio,50*ratio)
 	--# TEXT #--
