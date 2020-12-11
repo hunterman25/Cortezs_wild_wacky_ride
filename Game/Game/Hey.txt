@@ -1,1 +1,0 @@
-This is just to format everything when you finally compile it. Leave this folder empty for now, then drag all the game files except main.lua into here.
