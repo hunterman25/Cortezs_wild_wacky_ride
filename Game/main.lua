@@ -14,6 +14,8 @@ function love.load()
 	screenText=0
 	allowOpen=true
 	allowClose=false
+	canMenu=true
+	canMove=true
 	--# FILE MANAGEMENT #--
 	resizeLarge=assert(loadfile("Game\\Resize\\resizeLarge.lua"))
 	resizeSmall=assert(loadfile("Game\\Resize\\resizeSmall.lua"))
@@ -83,7 +85,7 @@ function love.load()
 end
 
 function love.update(dt)
-	--CONTROLS--
+	--# CONTROLS #--
 	if love.keyboard.isDown("f") and large~=true then
 		resizeLarge()
 		large=true
@@ -92,17 +94,19 @@ function love.update(dt)
 		resizeSmall()
 		large=false
 	end
-	if love.keyboard.isDown("left") and x > 0 then
-		x=x-5*ratio
-	end
-	if love.keyboard.isDown("right") and x+50*ratio < 600*ratio then
-		x=x+5*ratio
-	end
-	if love.keyboard.isDown("up") and y > 0 then
-		y=y-5*ratio
-	end
-	if love.keyboard.isDown("down") and y+50*ratio < 600*ratio then
-		y=y+5*ratio
+	if canMove == true then
+		if love.keyboard.isDown("left") and x > 0 then
+			x=x-5*ratio
+		end
+		if love.keyboard.isDown("right") and x+50*ratio < 600*ratio then
+			x=x+5*ratio
+		end
+		if love.keyboard.isDown("up") and y > 0 then
+			y=y-5*ratio
+		end
+		if love.keyboard.isDown("down") and y+50*ratio < 600*ratio then
+			y=y+5*ratio
+		end
 	end
 	if love.keyboard.isDown("g") then
 		text("hey",100,100,1.5)
@@ -113,19 +117,29 @@ function love.update(dt)
 	if love.keyboard.isDown("j") then
 		resetText()
 	end
-	local menuCheck=love.keyboard.isDown("e")
-	if menuCheck == true and allowOpen == true then
+	local eCheck=love.keyboard.isDown("e")
+	local escCheck=love.keyboard.isDown("escape")
+	if eCheck == true and allowOpen == true and canMenu == true then
 		menu=true
 		allowOpen=false
+		canMove=false
+		menuSection="main"
+		opt1Sel=true
+		opt2Sel=false
+		opt3Sel=false
+		opt4Sel=false
+		canAdvance=true
 	end
-	if menu == true and menuCheck == false then
+	if menu == true and eCheck == false then
 		allowClose=true
 	end
-	if menuCheck == true and allowClose == true then
+	if escCheck == true and allowClose == true then
 		menu=false
 		allowClose=false
+		resetText()
+		canMove=true
 	end
-	if menu == false and menuCheck == false then
+	if menu == false and escCheck == false then
 		allowOpen=true
 	end
 end
@@ -133,13 +147,14 @@ end
 function love.draw() -- DEFAULT SCREEN DIMENSIONS: 600 by 600
 	love.graphics.setColor(0,255,0)
 	newRectangle(0,0,600,600)
-	if menu == true then
-		openMenu()
-	end
 	--# CHARACTER #--
 	love.graphics.setColor(255,0,0)
 	love.graphics.rectangle("fill",x,y,50*ratio,50*ratio)
 	--# TEXT #--
+	if menu == true then
+		resetText()
+		openMenu()
+	end
 	if printing == true then
 		printText()
 	end
