@@ -31,6 +31,12 @@ function love.load()
 	function newRectangle(x,y,l,h)
 		love.graphics.rectangle("fill",x*ratio,y*ratio,l*ratio,h*ratio)
 	end
+	function resetOptions()
+		opt1Sel=true
+		opt2Sel=false
+		opt3Sel=false
+		opt4Sel=false
+	end
 	function text(content,x,y,size)
 
 		local firstChar=true
@@ -112,12 +118,6 @@ function love.update(dt)
 			y=y+5*ratio
 		end
 	end
-	if love.keyboard.isDown("g") then
-		text("hey",100,100,1.5)
-	end
-	if love.keyboard.isDown("h") then
-		text(":A{1a{2a {1N{1n It works :)",100,200,1)
-	end
 	if love.keyboard.isDown("j") then
 		resetText()
 	end
@@ -128,16 +128,13 @@ function love.update(dt)
 		allowOpen=false
 		canMove=false
 		menuSection="main"
-		opt1Sel=true
-		opt2Sel=false
-		opt3Sel=false
-		opt4Sel=false
-		canAdvance=true
+		resetOptions()
+		canAdvance=false
 	end
 	if menu == true and eCheck == false then
 		allowClose=true
 	end
-	if escCheck == true and allowClose == true then
+	if escCheck == true and allowClose == true and menuSection == "main" and canAdvance == true then
 		menu=false
 		allowClose=false
 		resetText()
