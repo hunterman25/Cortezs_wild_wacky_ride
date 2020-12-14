@@ -1,3 +1,7 @@
+------------------------------------------------------------------------------------------------
+--Hi! Just so you know, if you're here to pirate all this, I can't really do much to stop you.--
+--If you are, just know that all of us developers think you're an asshole. Have a good day!   --
+------------------------------------------------------------------------------------------------
 function love.load()
 	--# WINDOW #--
 	love.window.setTitle("Fuck Spain")
