@@ -1,6 +1,6 @@
 function love.load()
 	--# WINDOW #--
-	love.window.setTitle("Fuck Spain")
+	love.window.setTitle("Cortez")
 	love.window.setMode(600,600)
 	--# VARIABLES #--
 	winX,winY=love.window.getDesktopDimensions()
