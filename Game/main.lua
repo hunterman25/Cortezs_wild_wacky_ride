@@ -36,6 +36,7 @@ function love.load()
 		opt2Sel=false
 		opt3Sel=false
 		opt4Sel=false
+		opt5Sel=false
 	end
 	function text(content,x,y,size)
 
@@ -47,16 +48,18 @@ function love.load()
 		processText={x,y,size}
 
 		for ch in string.gmatch(content,".") do
+			local isColon=false
 			if firstChar == true and ch == ":" then
 				selected=true
+				isColon=true
 			end
 			if ch == "{" then
 				countdown=3
 			end
 			if countdown == 0 then
-				if selected == true then
+				if selected == true and isColon == false then
 					table.insert(processText,("Sel" .. ch))
-				else
+				elseif selected == false and isColon == false then
 					table.insert(processText,ch)
 				end
 			else

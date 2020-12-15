@@ -66,6 +66,97 @@ if menuSection == "main" then
 	if opt4Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
 		opt4Sel=false
+		opt5Sel=true
+	end
+	if opt4Sel == true and upPressed == true and canAdvance == true then
+		canAdvance=false
+		opt4Sel=false
+		opt3Sel=true
+	end
+	if opt4Sel == true and ePressed == true and canAdvance == true then
+		canAdvance=false
+		menuSection="options"
+		resetOptions()
+	end
+	if opt5Sel == true and downPressed == true and canAdvance == true then
+		canAdvance=false
+		opt5Sel=false
+		opt1Sel=true
+	end
+	if opt5Sel == true and upPressed == true and canAdvance == true then
+		canAdvance=false
+		opt5Sel=false
+		opt4Sel=true
+	end
+	if opt5Sel == true and ePressed == true and canAdvance == true then
+		canAdvance=false
+		menuSection="quit"
+		resetOptions()
+	end
+	love.graphics.setColor(255,255,255)
+	option(opt1Sel,"Inventory",60,60,0.5)
+	option(opt2Sel,"PlayerName",60,120,0.5)
+	option(opt3Sel,"Save",60,180,0.5)
+	option(opt4Sel,"Options",60,240,0.5)
+	option(opt5Sel,"Quit",60,300,0.5)
+end
+
+--# MAIN SECTIONS #--
+
+if menuSection == "options" then
+	if escPressed == true and canAdvance == true then
+		canAdvance=false
+		menuSection="main"
+		resetOptions()
+	end
+	if opt1Sel == true and downPressed == true and canAdvance == true then
+		canAdvance=false
+		opt1Sel=false
+		opt2Sel=true
+	end
+	if opt1Sel == true and upPressed == true and canAdvance == true then
+		canAdvance=false
+		opt1Sel=false
+		opt4Sel=true
+	end
+	if opt1Sel == true and ePressed == true and canAdvance == true then
+		canAdvance=false
+		menuSection="controls"
+		resetOptions()
+	end
+	if opt2Sel == true and downPressed == true and canAdvance == true then
+		canAdvance=false
+		opt2Sel=false
+		opt3Sel=true
+	end
+	if opt2Sel == true and upPressed == true and canAdvance == true then
+		canAdvance=false
+		opt2Sel=false
+		opt1Sel=true
+	end
+	if opt2Sel == true and ePressed == true and canAdvance == true then
+		canAdvance=false
+		menuSection="audio"
+		resetOptions()
+	end
+	if opt3Sel == true and downPressed == true and canAdvance == true then
+		canAdvance=false
+		opt3Sel=false
+		opt4Sel=true
+	end
+	if opt3Sel == true and upPressed == true and canAdvance == true then
+		canAdvance=false
+		opt3Sel=false
+		opt2Sel=true
+	end
+	if opt3Sel == true and ePressed == true and canAdvance == true then
+		canAdvance=false
+		menuSection="video"
+		resetOptions()
+	end
+	if opt4Sel == true and downPressed == true and canAdvance == true then
+		canAdvance=false
+		opt4Sel=false
 		opt1Sel=true
 	end
 	if opt4Sel == true and upPressed == true and canAdvance == true then
@@ -75,14 +166,13 @@ if menuSection == "main" then
 	end
 	if opt4Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuSection="quit"
+		menuSection="other"
 		resetOptions()
 	end
-	love.graphics.setColor(255,255,255)
-	option(opt1Sel,"Inventory",60,60,0.5)
-	option(opt2Sel,"PlayerName",60,120,0.5)
-	option(opt3Sel,"Save",60,180,0.5)
-	option(opt4Sel,"Quit",60,240,0.5)
+	option(opt1Sel,"Controls",60,60,0.5)
+	option(opt2Sel,"Audio",60,120,0.5)
+	option(opt3Sel,"Video",60,180,0.5)
+	option(opt4Sel,"Other",60,240,0.5)
 end
 if menuSection == "quit" then
 	if escPressed == true and canAdvance == true then
@@ -121,5 +211,35 @@ if menuSection == "quit" then
 	option(opt1Sel,"No",70,300,1.5)
 	option(opt2Sel,"Yes",300,300,1.5)
 	text("Are you",120,100,1)
-	text("sure?",200,160,1)
+	text("sure?",160,170,1)
+end
+
+--# OPTIONS SECTIONS #--
+
+if menuSection == "video" then
+	if escPressed == true and canAdvance == true then
+		canAdvance=false
+		menuSection="options"
+		resetOptions()
+	end
+	if large == false then
+		text("Small",360,60,0.5)
+		if rightPressed == true or leftPressed == true then
+			if canAdvance == true then
+				resizeLarge()
+				large=true
+				canAdvance=false
+			end
+		end
+	else
+		text("Large",360,60,0.5)
+		if rightPressed == true or leftPressed == true then
+			if canAdvance == true then
+				resizeSmall()
+				large=false
+				canAdvance=false
+			end
+		end
+	end
+	option(opt1Sel,"Screen Size:",60,60,0.5)
 end

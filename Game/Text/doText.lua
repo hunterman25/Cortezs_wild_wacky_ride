@@ -156,5 +156,17 @@ for i,v in ipairs(processText) do
 		queue("SelSpaN",upperSelSpaN)
 		queue(" ",space)
 		queue("Sel ",space)
+		queue(".",period)
+		queue("!",exclamation)
+		queue("?",question)
+		queue(":",colon)
+		queue("¡",spaExclamation)
+		queue("¿",spaQuestion)
+		queue("Sel.",selPeriod)
+		queue("Sel!",selExclamation)
+		queue("Sel?",selQuestion)
+		queue("Sel:",selColon)
+		queue("Sel¡",selSpaExclamation)
+		queue("Sel¿",selSpaQuestion)
 	end
 end
