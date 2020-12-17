@@ -103,6 +103,60 @@ end
 
 --# MAIN SECTIONS #--
 
+if menuSection == "save" then
+	if escPressed == true and canAdvance == true then
+		canAdvance=false
+		menuSection="main"
+		resetOptions()
+	end
+	if opt1Sel == true and rightPressed == true and canAdvance == true then
+		canAdvance=false
+		opt2Sel=true
+		opt1Sel=false
+	end
+	if opt1Sel == true and leftPressed == true and canAdvance == true then
+		canAdvance=false
+		opt2Sel=true
+		opt1Sel=false
+	end
+	if opt1Sel == true and ePressed == true and canAdvance == true then
+		canAdvance=false
+		menuSection="saving"
+		resetOptions()
+		saving=true
+	end
+	if opt2Sel == true and rightPressed == true and canAdvance == true then
+		canAdvance=false
+		opt1Sel=true
+		opt2Sel=false
+	end
+	if opt2Sel == true and leftPressed == true and canAdvance == true then
+		canAdvance=false
+		opt1Sel=true
+		opt2Sel=false
+	end
+	if opt2Sel == true and ePressed == true and canAdvance == true then
+		canAdvance=false
+		menuSection="main"
+		resetOptions()
+	end
+	option(opt1Sel,"Yes",50,300,1.5)
+	option(opt2Sel,"No",350,300,1.5)
+	text("Save?",100,150,1.5)
+end
+if menuSection == "saving" and saving == true then
+	text("Saving...",100,200,1)
+	saveFile()
+end
+if menuSection == "saving" and saving == false then
+	if escPressed == true and canAdvance == true then
+		canAdvance=false
+		menuSection="main"
+		resetOptions()
+	end
+	text("Save",130,100,1.5)
+	text("Complete.",90,250,1)
+end
 if menuSection == "options" then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false

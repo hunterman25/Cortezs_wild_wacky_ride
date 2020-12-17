@@ -3,16 +3,14 @@
 --If you are, just know that all of us developers think you're an asshole. Have a good day!   --
 ------------------------------------------------------------------------------------------------
 function love.load()
+	dofile("Game\\Save\\load.lua")
 	--# WINDOW #--
-	love.window.setTitle("Fuck Spain")
+	love.window.setTitle("Cortez")
 	love.window.setMode(600,600)
 	--# VARIABLES #--
 	winX,winY=love.window.getDesktopDimensions()
 	winY=winY-100
 	ratio=1
-	large=false
-	x=275
-	y=275
 	printing=false
 	printingText={}
 	screenText=0
@@ -27,6 +25,7 @@ function love.load()
 	doText=assert(loadfile("Game\\Text\\doText.lua"))
 	printText=assert(loadfile("Game\\Text\\printText.lua"))
 	openMenu=assert(loadfile("Game\\Warehouse\\menu.lua"))
+	saveFile=assert(loadfile("Game\\Save\\save.lua"))
 	--# FUNCTIONS #--
 	function newRectangle(x,y,l,h)
 		love.graphics.rectangle("fill",x*ratio,y*ratio,l*ratio,h*ratio)
@@ -95,18 +94,14 @@ function love.load()
 		screenText=0
 		printingText={}
 	end
+	--# LOAD IFS #--
+	if large == true then
+		resizeLarge()
+	end
 end
 
 function love.update(dt)
 	--# CONTROLS #--
-	if love.keyboard.isDown("f") and large~=true then
-		resizeLarge()
-		large=true
-	end
-	if love.keyboard.isDown("s") and large==true then
-		resizeSmall()
-		large=false
-	end
 	if canMove == true then
 		if love.keyboard.isDown("left") and x > 0 then
 			x=x-5*ratio
