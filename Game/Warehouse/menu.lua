@@ -154,6 +154,11 @@ if menuSection == "saving" and saving == false then
 		menuSection="main"
 		resetOptions()
 	end
+	if ePressed == true and canAdvance == true then
+		canAdvance=false
+		menuSection="main"
+		resetOptions()
+	end
 	text("Save","SPA","NAH",130,100,1.5)
 	text("Complete.","SPA","NAH",90,250,1)
 end
