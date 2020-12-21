@@ -1,12 +1,23 @@
 saveLocation=assert(io.open("Game\\Save\\file.lua","w+"))
 saveContent=""
+local function saveAdd(index,value)
+	saveContent=(saveContent .. "," .. index .. ":" .. value)
+end
 if large == false then
-	saveContent=(saveContent .. ",1:0")
+	saveAdd(1,0)
+elseif large == true then
+	saveAdd(1,1)
 end
-if large == true then
-	saveContent=(saveContent .. ",1:1")
+saveAdd(2,x/ratio)
+saveAdd(3,y/ratio)
+if language == "Eng" then
+	saveAdd(4,1)
+elseif language == "Spa" then
+	saveAdd(4,2)
+elseif language == "Nah" then
+	saveAdd(4,3)
 end
-saveContent=(saveContent .. ",2:" .. x/ratio .. ",3:" .. y/ratio)
+--
 saveContent=(saveContent .. "%")
 saveLocation:write(saveContent)
 saveLocation:close()

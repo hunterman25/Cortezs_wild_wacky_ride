@@ -37,7 +37,7 @@ function love.load()
 		opt4Sel=false
 		opt5Sel=false
 	end
-	function text(content,x,y,size)
+	function text(engContent,spaContent,nahContent,x,y,size)
 
 		local firstChar=true
 		local selected=false
@@ -46,45 +46,131 @@ function love.load()
 		screenText=screenText+1
 		processText={x,y,size}
 
-		for ch in string.gmatch(content,".") do
-			local isColon=false
-			if firstChar == true and ch == ":" then
-				selected=true
-				isColon=true
-			end
-			if ch == "{" then
-				countdown=3
-			end
-			if countdown == 0 then
-				if selected == true and isColon == false then
-					table.insert(processText,("Sel" .. ch))
-				elseif selected == false and isColon == false then
-					table.insert(processText,ch)
+		if language == "Eng" then
+			for ch in string.gmatch(engContent,".") do
+				local isColon=false
+				if firstChar == true and ch == ":" then
+					selected=true
+					isColon=true
 				end
-			else
-				if countdown == 2 then
-					local compare=tonumber(ch)
-					if compare ~= nil then
-						if compare == 1 then
-							cat="Spa"
-						elseif compare == 2 then
-							cat="Nah"
+				if ch == "{" then
+					countdown=3
+				end
+					if countdown == 0 then
+					if selected == true and isColon == false then
+						table.insert(processText,("Sel" .. ch))
+					elseif selected == false and isColon == false then
+						table.insert(processText,ch)
+					end
+				else
+					if countdown == 2 then
+						local compare=tonumber(ch)
+						if compare ~= nil then
+							if compare == 1 then
+								cat="Spa"
+							elseif compare == 2 then
+								cat="Nah"
+							end
 						end
 					end
-				end
-				if countdown == 1 then
-					if selected == true then
-						table.insert(processText,("Sel" .. cat .. ch))
-					else
-						table.insert(processText,(cat .. ch))
+					if countdown == 1 then
+						if selected == true then
+							table.insert(processText,("Sel" .. cat .. ch))
+						else
+							table.insert(processText,(cat .. ch))
+						end
 					end
+					countdown=countdown-1
 				end
-				countdown=countdown-1
+				if firstChar == true and ch == ":" then
+					selected=true
+				end
+				firstChar=false
 			end
-			if firstChar == true and ch == ":" then
-				selected=true
+		end
+		if language == "Spa" then
+			for ch in string.gmatch(spaContent,".") do
+				local isColon=false
+				if firstChar == true and ch == ":" then
+					selected=true
+					isColon=true
+				end
+				if ch == "{" then
+					countdown=3
+				end
+					if countdown == 0 then
+					if selected == true and isColon == false then
+						table.insert(processText,("Sel" .. ch))
+					elseif selected == false and isColon == false then
+						table.insert(processText,ch)
+					end
+				else
+					if countdown == 2 then
+						local compare=tonumber(ch)
+						if compare ~= nil then
+							if compare == 1 then
+								cat="Spa"
+							elseif compare == 2 then
+								cat="Nah"
+							end
+						end
+					end
+					if countdown == 1 then
+						if selected == true then
+							table.insert(processText,("Sel" .. cat .. ch))
+						else
+							table.insert(processText,(cat .. ch))
+						end
+					end
+					countdown=countdown-1
+				end
+				if firstChar == true and ch == ":" then
+					selected=true
+				end
+				firstChar=false
 			end
-			firstChar=false
+		end
+		if language == "Nah" then
+			for ch in string.gmatch(nahContent,".") do
+				local isColon=false
+				if firstChar == true and ch == ":" then
+					selected=true
+					isColon=true
+				end
+				if ch == "{" then
+					countdown=3
+				end
+					if countdown == 0 then
+					if selected == true and isColon == false then
+						table.insert(processText,("Sel" .. ch))
+					elseif selected == false and isColon == false then
+						table.insert(processText,ch)
+					end
+				else
+					if countdown == 2 then
+						local compare=tonumber(ch)
+						if compare ~= nil then
+							if compare == 1 then
+								cat="Spa"
+							elseif compare == 2 then
+								cat="Nah"
+							end
+						end
+					end
+					if countdown == 1 then
+						if selected == true then
+							table.insert(processText,("Sel" .. cat .. ch))
+						else
+							table.insert(processText,(cat .. ch))
+						end
+					end
+					countdown=countdown-1
+				end
+				if firstChar == true and ch == ":" then
+					selected=true
+				end
+				firstChar=false
+			end
 		end
 		doText()
 		printing=true
@@ -141,6 +227,15 @@ function love.update(dt)
 	if menu == false and escCheck == false then
 		allowOpen=true
 	end
+	if love.keyboard.isDown("1") then
+		language="Eng"
+	end
+	if love.keyboard.isDown("2") then
+		language="Spa"
+	end
+	if love.keyboard.isDown("3") then
+		language="Nah"
+	end
 end
 
 function love.draw() -- DEFAULT SCREEN DIMENSIONS: 600 by 600
@@ -149,6 +244,7 @@ function love.draw() -- DEFAULT SCREEN DIMENSIONS: 600 by 600
 	--# CHARACTER #--
 	love.graphics.setColor(255,0,0)
 	love.graphics.rectangle("fill",x,y,50*ratio,50*ratio)
+	love.graphics.print(("language: " .. language),10,10,0,2)
 	--# TEXT #--
 	if menu == true then
 		resetText()

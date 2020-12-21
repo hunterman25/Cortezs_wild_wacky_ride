@@ -32,6 +32,19 @@ for i,v in ipairs(loadContent) do
 	if v == "3" and index == true then
 		y=tonumber(nextVal)
 	end
+	if v == "4" and index == true then
+		if nextVal == "1" then
+			language="Eng"
+		end
+		if nextVal == "2" then
+			language="Spa"
+		end
+		if nextVal == "3" then
+			language="Nah"
+		end
+	end
+
+	--
 	if index == true then
 		index=false
 	elseif index == false then

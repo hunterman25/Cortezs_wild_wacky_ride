@@ -1,11 +1,11 @@
 love.graphics.setColor(255,255,255,0.5)
 newRectangle(50,50,500,500)
-local function option(optIndex,display,x,y,size)
+local function option(optIndex,engDisplay,spaDisplay,nahDisplay,x,y,size)
 	if optIndex == true then
-		text((":" .. display),x,y,size)
+		text((":" .. engDisplay),(":" .. spaDisplay),(":" .. nahDisplay),x,y,size)
 	end
 	if optIndex == false then
-		text(display,x,y,size)
+		text(engDisplay,spaDisplay,nahDisplay,x,y,size)
 	end
 end
 local upPressed=love.keyboard.isDown("up")
@@ -94,11 +94,11 @@ if menuSection == "main" then
 		resetOptions()
 	end
 	love.graphics.setColor(255,255,255)
-	option(opt1Sel,"Inventory",60,60,0.5)
-	option(opt2Sel,"PlayerName",60,120,0.5)
-	option(opt3Sel,"Save",60,180,0.5)
-	option(opt4Sel,"Options",60,240,0.5)
-	option(opt5Sel,"Quit",60,300,0.5)
+	option(opt1Sel,"Inventory","SPA","NAH",60,60,0.5)
+	option(opt2Sel,"PlayerName","SPA","NAH",60,120,0.5)
+	option(opt3Sel,"Save","SPA","NAH",60,180,0.5)
+	option(opt4Sel,"Options","SPA","NAH",60,240,0.5)
+	option(opt5Sel,"Quit","SPA","NAH",60,300,0.5)
 end
 
 --# MAIN SECTIONS #--
@@ -140,12 +140,12 @@ if menuSection == "save" then
 		menuSection="main"
 		resetOptions()
 	end
-	option(opt1Sel,"Yes",50,300,1.5)
-	option(opt2Sel,"No",350,300,1.5)
-	text("Save?",100,150,1.5)
+	option(opt1Sel,"Yes","SPA","NAH",50,300,1.5)
+	option(opt2Sel,"No","SPA","NAH",350,300,1.5)
+	text("Save?","SPA","NAH",100,150,1.5)
 end
 if menuSection == "saving" and saving == true then
-	text("Saving...",100,200,1)
+	text("Saving...","SPA","NAH",100,200,1)
 	saveFile()
 end
 if menuSection == "saving" and saving == false then
@@ -154,8 +154,8 @@ if menuSection == "saving" and saving == false then
 		menuSection="main"
 		resetOptions()
 	end
-	text("Save",130,100,1.5)
-	text("Complete.",90,250,1)
+	text("Save","SPA","NAH",130,100,1.5)
+	text("Complete.","SPA","NAH",90,250,1)
 end
 if menuSection == "options" then
 	if escPressed == true and canAdvance == true then
@@ -223,10 +223,10 @@ if menuSection == "options" then
 		menuSection="other"
 		resetOptions()
 	end
-	option(opt1Sel,"Controls",60,60,0.5)
-	option(opt2Sel,"Audio",60,120,0.5)
-	option(opt3Sel,"Video",60,180,0.5)
-	option(opt4Sel,"Other",60,240,0.5)
+	option(opt1Sel,"Controls","SPA","NAH",60,60,0.5)
+	option(opt2Sel,"Audio","SPA","NAH",60,120,0.5)
+	option(opt3Sel,"Video","SPA","NAH",60,180,0.5)
+	option(opt4Sel,"Other","SPA","NAH",60,240,0.5)
 end
 if menuSection == "quit" then
 	if escPressed == true and canAdvance == true then
@@ -262,10 +262,10 @@ if menuSection == "quit" then
 	if opt2Sel == true and ePressed == true and canAdvance == true then
 		os.exit()
 	end
-	option(opt1Sel,"No",70,300,1.5)
-	option(opt2Sel,"Yes",300,300,1.5)
-	text("Are you",120,100,1)
-	text("sure?",160,170,1)
+	option(opt1Sel,"No","SPA","NAH",70,300,1.5)
+	option(opt2Sel,"Yes","SPA","NAH",300,300,1.5)
+	text("Are you","SPA","NAH",120,100,1)
+	text("sure?","SPA","NAH",160,170,1)
 end
 
 --# OPTIONS SECTIONS #--
@@ -277,7 +277,7 @@ if menuSection == "video" then
 		resetOptions()
 	end
 	if large == false then
-		text("Small",360,60,0.5)
+		text("Small","SPA","NAH",360,60,0.5)
 		if rightPressed == true or leftPressed == true then
 			if canAdvance == true then
 				resizeLarge()
@@ -286,7 +286,7 @@ if menuSection == "video" then
 			end
 		end
 	else
-		text("Large",360,60,0.5)
+		text("Large","SPA","NAH",360,60,0.5)
 		if rightPressed == true or leftPressed == true then
 			if canAdvance == true then
 				resizeSmall()
@@ -295,5 +295,5 @@ if menuSection == "video" then
 			end
 		end
 	end
-	option(opt1Sel,"Screen Size:",60,60,0.5)
+	option(opt1Sel,"Screen Size:","SPA","NAH",60,60,0.5)
 end
