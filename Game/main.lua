@@ -37,16 +37,16 @@ function love.load()
 		opt4Sel=false
 		opt5Sel=false
 	end
-	function text(engContent,spaContent,nahContent,x,y,size)
+	function text(engContent,spaContent,nahContent,engX,engY,engSize,spaX,spaY,spaSize,nahX,nahY,nahSize)
 
 		local firstChar=true
 		local selected=false
 		local countdown=0
 		local cat=""
 		screenText=screenText+1
-		processText={x,y,size}
 
 		if language == "Eng" then
+			processText={engX,engY,engSize}
 			for ch in string.gmatch(engContent,".") do
 				local isColon=false
 				if firstChar == true and ch == ":" then
@@ -89,6 +89,7 @@ function love.load()
 			end
 		end
 		if language == "Spa" then
+			processText={spaX,spaY,spaSize}
 			for ch in string.gmatch(spaContent,".") do
 				local isColon=false
 				if firstChar == true and ch == ":" then
@@ -131,6 +132,7 @@ function love.load()
 			end
 		end
 		if language == "Nah" then
+			processText={nahX,nahY,nahSize}
 			for ch in string.gmatch(nahContent,".") do
 				local isColon=false
 				if firstChar == true and ch == ":" then
@@ -140,7 +142,7 @@ function love.load()
 				if ch == "{" then
 					countdown=3
 				end
-					if countdown == 0 then
+				if countdown == 0 then
 					if selected == true and isColon == false then
 						table.insert(processText,("Sel" .. ch))
 					elseif selected == false and isColon == false then

@@ -160,13 +160,13 @@ for i,v in ipairs(processText) do
 		queue("!",exclamation)
 		queue("?",question)
 		queue(":",colon)
-		queue("¡",spaExclamation)
-		queue("¿",spaQuestion)
+		queue("Spa!",spaExclamation)
+		queue("Spa?",spaQuestion)
 		queue("Sel.",selPeriod)
 		queue("Sel!",selExclamation)
 		queue("Sel?",selQuestion)
 		queue("Sel:",selColon)
-		queue("Sel¡",selSpaExclamation)
-		queue("Sel¿",selSpaQuestion)
+		queue("SelSpa!",selSpaExclamation)
+		queue("SelSpa?",selSpaQuestion)
 	end
 end
