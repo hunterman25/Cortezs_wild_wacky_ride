@@ -96,9 +96,9 @@ if menuSection == "main" then
 	love.graphics.setColor(255,255,255)
 	option(opt1Sel,"Inventory","Inventario","NAH",60,60,0.5,60,60,0.5,60,60,0.5)
 	option(opt2Sel,"PlayerName","PlayerName","PlayerName",60,120,0.5,60,120,0.5,60,120,0.5)
-	option(opt3Sel,"Save","Salvar","NAH",60,180,0.5,60,180,0.5,60,180,0.5)
+	option(opt3Sel,"Save","Guardar","NAH",60,180,0.5,60,180,0.5,60,180,0.5)
 	option(opt4Sel,"Options","Opciones","NAH",60,240,0.5,60,240,0.5,60,240,0.5)
-	option(opt5Sel,"Quit","SPA","NAH",60,300,0.5,60,300,0.5,60,300,0.5)
+	option(opt5Sel,"Quit","Abandonar","NAH",60,300,0.5,60,300,0.5,60,300,0.5)
 end
 
 --# MAIN SECTIONS #--
@@ -141,11 +141,11 @@ if menuSection == "save" then
 		resetOptions()
 	end
 	option(opt1Sel,"Yes","Si","NAH",50,300,1.5,100,300,1.5,50,300,1.5)
-	option(opt2Sel,"No","No","NAH",350,300,1.5,350,300,1.5,350,300,1.5)
-	text("Save?","{1?Salvar?","NAH",100,150,1.5,100,150,1,100,150,1.5)
+	option(opt2Sel,"No","No","NAH",350,300,1.5,320,300,1.5,350,300,1.5)
+	text("Save?","{1?Guardar?","NAH",100,150,1.5,75,150,1,100,150,1.5)
 end
 if menuSection == "saving" and saving == true then
-	text("Saving...","Salvando...","NAH",100,200,1,100,200,0.75,100,200,1)
+	text("Saving...","Guardando...","NAH",100,200,1,100,200,0.75,100,200,1)
 	--TEMP
 	if love.keyboard.isDown("right") and canAdvance == true then
 		canAdvance=false
@@ -164,8 +164,8 @@ if menuSection == "saving" and saving == false then
 		menuSection="main"
 		resetOptions()
 	end
-	text("Save","SPA","NAH",130,100,1.5,130,100,1.5,130,100,1.5)
-	text("Complete.","SPA","NAH",90,250,1,90,250,1,90,250,1)
+	text("Save","Guardar","NAH",130,100,1.5,120,150,1,130,100,1.5)
+	text("Complete.","Completo.","NAH",90,250,1,90,250,1,90,250,1)
 end
 if menuSection == "options" then
 	if escPressed == true and canAdvance == true then
@@ -234,7 +234,7 @@ if menuSection == "options" then
 		resetOptions()
 	end
 	option(opt1Sel,"Controls","SPA","NAH",60,60,0.5,60,60,0.5,60,60,0.5)
-	option(opt2Sel,"Audio","SPA","NAH",60,120,0.5,60,120,0.5,60,120,0.5)
+	option(opt2Sel,"Audio","Sonido","NAH",60,120,0.5,60,120,0.5,60,120,0.5)
 	option(opt3Sel,"Video","Video","NAH",60,180,0.5,60,180,0.5,60,180,0.5)
 	option(opt4Sel,"Other","SPA","NAH",60,240,0.5,60,240,0.5,60,240,0.5)
 end
@@ -272,10 +272,10 @@ if menuSection == "quit" then
 	if opt2Sel == true and ePressed == true and canAdvance == true then
 		os.exit()
 	end
-	option(opt1Sel,"No","No","NAH",70,300,1.5,70,300,1.5,70,300,1.5)
-	option(opt2Sel,"Yes","Si","NAH",300,300,1.5,300,300,1.5,300,300,1.5)
-	text("Are you","SPA","NAH",120,100,1,120,100,1,120,100,1)
-	text("sure?","SPA","NAH",160,170,1,160,170,1,160,170,1)
+	option(opt1Sel,"No","No","NAH",70,300,1.5,100,300,1.5,70,300,1.5)
+	option(opt2Sel,"Yes","Si","NAH",300,300,1.5,350,300,1.5,300,300,1.5)
+	text("Are you","{1?Est{1as","NAH",120,100,1,120,100,1,120,100,1)
+	text("sure?","seguro?","NAH",160,170,1,110,170,1,160,170,1)
 end
 
 --# OPTIONS SECTIONS #--

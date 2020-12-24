@@ -8,7 +8,10 @@ for a,objs in ipairs(printingText) do
 				if i > 3 then
 					sizeExtremity=sizeExtremity+(17*ratio*textScale)
 				end
-				exDouble=true
+			end
+			local compare=printingText[objs][i-1]
+			if compare == lowerI or compare == lowerSpaI or compare == lowerL or compare == lowerNahI or compare == lowerT or compare == lowerSelI or compare == lowerSelSpaI or compare == lowerSelL or compare == lowerSelNahI or compare == lowerSelT then		 
+				sizeExtremity=sizeExtremity+(17*ratio*textScale)
 			end
 			love.graphics.draw(v,printingText[objs][1]*ratio+(100*textScale*ratio*(i-4))-sizeExtremity,printingText[objs][2]*ratio,0,textScale*ratio,textScale*ratio)
 		end
