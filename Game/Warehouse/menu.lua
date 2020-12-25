@@ -233,10 +233,10 @@ if menuSection == "options" then
 		menuSection="other"
 		resetOptions()
 	end
-	option(opt1Sel,"Controls","SPA","NAH",60,60,0.5,60,60,0.5,60,60,0.5)
+	option(opt1Sel,"Controls","Controles","NAH",60,60,0.5,60,60,0.5,60,60,0.5)
 	option(opt2Sel,"Audio","Sonido","NAH",60,120,0.5,60,120,0.5,60,120,0.5)
 	option(opt3Sel,"Video","Video","NAH",60,180,0.5,60,180,0.5,60,180,0.5)
-	option(opt4Sel,"Other","SPA","NAH",60,240,0.5,60,240,0.5,60,240,0.5)
+	option(opt4Sel,"Other","M{1as Opciones","NAH",60,240,0.5,60,240,0.5,60,240,0.5)
 end
 if menuSection == "quit" then
 	if escPressed == true and canAdvance == true then
@@ -307,4 +307,74 @@ if menuSection == "video" then
 	end
 	option(opt1Sel,"Screen Size:","Tama{1no De","NAH",60,60,0.5,60,60,0.5,60,60,0.5)
 	option(opt1Sel,"","Pantalla:","",0,0,0,60,100,0.5,0,0,0)
+end
+if menuSection == "other" then
+	if escPressed == true and canAdvance == true and opt2Sel ~= true and opt3Sel ~= true and opt4Sel ~= true then
+		canAdvance=false
+		menuSection="options"
+		resetOptions()
+	end
+	if opt1Sel == true and ePressed == true and canAdvance == true then
+		canAdvance=false
+		if language == "Eng" then
+			opt2Sel=true
+		elseif language == "Spa" then
+			opt3Sel=true
+		elseif language == "Nah" then
+			opt4Sel=true
+		end
+		opt1Sel=false
+	end
+	if opt2Sel == true and leftPressed == true and canAdvance == true then
+		canAdvance=false
+		opt4Sel=true
+		opt2Sel=false
+		--language="Nah"
+	end
+	if opt2Sel == true and rightPressed == true and canAdvance == true then
+		canAdvance=false
+		opt3Sel=true
+		opt2Sel=false
+		language="Spa"
+	end
+	if opt3Sel == true and leftPressed == true and canAdvance == true then
+		canAdvance=false
+		opt2Sel=true
+		opt3Sel=false
+		language="Eng"
+	end
+	if opt3Sel == true and rightPressed == true and canAdvance == true then
+		canAdvance=false
+		opt4Sel=true
+		opt3Sel=false
+		--language="Nah"
+	end
+	if opt4Sel == true and leftPressed == true and canAdvance == true then
+		canAdvance=false
+		opt3Sel=true
+		opt4Sel=false
+		language="Spa"
+	end
+	if opt4Sel == true and rightPressed == true and canAdvance == true then
+		canAdvance=false
+		opt2Sel=true
+		opt4Sel=false
+		language="Eng"
+	end
+	if opt2Sel == true or opt3Sel == true or opt4Sel == true then
+		if ePressed == true and canAdvance == true then
+			canAdvance=false
+			resetOptions()
+			opt1Sel=true
+		end
+		if escPressed == true and canAdvance == true then
+			canAdvance=false
+			resetOptions()
+			opt1Sel=true
+		end
+	end
+	option(opt1Sel,"Language","Lenguajes","NAH",190,60,0.5,180,60,0.5,180,60,0.5)
+	option(opt2Sel,"English","Ingl{1es","NAH",70,100,0.4,70,100,0.4,70,100,0.4)
+	option(opt3Sel,"Spanish","Espa{1nol","NAH",230,100,0.4,230,100,0.4,230,100,0.4)
+	option(opt4Sel,"Nahuatl","N{1ahuatl","N{2ahuatlaht{2olli",400,100,0.4,400,100,0.4,400,100,0.4)
 end

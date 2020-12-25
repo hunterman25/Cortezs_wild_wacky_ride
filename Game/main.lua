@@ -246,7 +246,6 @@ function love.draw() -- DEFAULT SCREEN DIMENSIONS: 600 by 600
 	--# CHARACTER #--
 	love.graphics.setColor(255,0,0)
 	love.graphics.rectangle("fill",x,y,50*ratio,50*ratio)
-	love.graphics.print(("language: " .. language),10,10,0,2)
 	--# TEXT #--
 	if menu == true then
 		resetText()
