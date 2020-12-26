@@ -17,6 +17,10 @@ elseif language == "Spa" then
 elseif language == "Nah" then
 	saveAdd(4,3)
 end
+saveAdd(5,masterVol)
+saveAdd(6,musicVol)
+saveAdd(7,soundVol)
+
 --
 saveContent=(saveContent .. "%")
 saveLocation:write(saveContent)

@@ -26,6 +26,8 @@ function love.load()
 	printText=assert(loadfile("Game\\Text\\printText.lua"))
 	openMenu=assert(loadfile("Game\\Warehouse\\menu.lua"))
 	saveFile=assert(loadfile("Game\\Save\\save.lua"))
+	dofile("Game\\Sound\\loadSound.lua")
+	volControl=assert(loadfile("Game\\Sound\\volControl.lua"))
 	--# FUNCTIONS #--
 	function newRectangle(x,y,l,h)
 		love.graphics.rectangle("fill",x*ratio,y*ratio,l*ratio,h*ratio)
@@ -189,6 +191,7 @@ function love.load()
 end
 
 function love.update(dt)
+	volControl()
 	--# CONTROLS #--
 	if canMove == true then
 		if love.keyboard.isDown("left") and x > 0 then
@@ -210,6 +213,7 @@ function love.update(dt)
 	local eCheck=love.keyboard.isDown("e")
 	local escCheck=love.keyboard.isDown("escape")
 	if eCheck == true and allowOpen == true and canMenu == true then
+		menuBlipSFX:play()
 		menu=true
 		allowOpen=false
 		canMove=false
@@ -221,6 +225,7 @@ function love.update(dt)
 		allowClose=true
 	end
 	if escCheck == true and allowClose == true and menuSection == "main" and canAdvance == true then
+		menuBlipSFX:play()
 		menu=false
 		allowClose=false
 		resetText()

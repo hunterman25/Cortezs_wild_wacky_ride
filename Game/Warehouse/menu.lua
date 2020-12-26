@@ -16,80 +16,96 @@ local ePressed=love.keyboard.isDown("e")
 local escPressed=love.keyboard.isDown("escape")
 if downPressed == false and upPressed == false and leftPressed == false and rightPressed == false and ePressed == false and escPressed == false then
 	canAdvance=true
+	countdown=8
 end
 if menuSection == "main" then
 	if opt1Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt1Sel=false
 		opt2Sel=true
 	end
 	if opt1Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt1Sel=false
 		opt5Sel=true
 	end
 	if opt1Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="inventory"
 		resetOptions()
 	end
 	if opt2Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt2Sel=false
 		opt3Sel=true
 	end
 	if opt2Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt2Sel=false
 		opt1Sel=true
 	end
 	if opt2Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="player"
 		resetOptions()
 	end
 	if opt3Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt3Sel=false
 		opt4Sel=true
 	end
 	if opt3Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt3Sel=false
 		opt2Sel=true
 	end
 	if opt3Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="save"
 		resetOptions()
 	end
 	if opt4Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt4Sel=false
 		opt5Sel=true
 	end
 	if opt4Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt4Sel=false
 		opt3Sel=true
 	end
 	if opt4Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="options"
 		resetOptions()
 	end
 	if opt5Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt5Sel=false
 		opt1Sel=true
 	end
 	if opt5Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt5Sel=false
 		opt4Sel=true
 	end
 	if opt5Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="quit"
 		resetOptions()
 	end
@@ -106,37 +122,44 @@ end
 if menuSection == "save" then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="main"
 		resetOptions()
 	end
 	if opt1Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt2Sel=true
 		opt1Sel=false
 	end
 	if opt1Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt2Sel=true
 		opt1Sel=false
 	end
 	if opt1Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="saving"
 		resetOptions()
 		saving=true
 	end
 	if opt2Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt1Sel=true
 		opt2Sel=false
 	end
 	if opt2Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt1Sel=true
 		opt2Sel=false
 	end
 	if opt2Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="main"
 		resetOptions()
 	end
@@ -156,11 +179,13 @@ end
 if menuSection == "saving" and saving == false then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="main"
 		resetOptions()
 	end
 	if ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="main"
 		resetOptions()
 	end
@@ -170,66 +195,79 @@ end
 if menuSection == "options" then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="main"
 		resetOptions()
 	end
 	if opt1Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt1Sel=false
 		opt2Sel=true
 	end
 	if opt1Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt1Sel=false
 		opt4Sel=true
 	end
 	if opt1Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="controls"
 		resetOptions()
 	end
 	if opt2Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt2Sel=false
 		opt3Sel=true
 	end
 	if opt2Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt2Sel=false
 		opt1Sel=true
 	end
 	if opt2Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="audio"
 		resetOptions()
 	end
 	if opt3Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt3Sel=false
 		opt4Sel=true
 	end
 	if opt3Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt3Sel=false
 		opt2Sel=true
 	end
 	if opt3Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="video"
 		resetOptions()
 	end
 	if opt4Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()	
 		opt4Sel=false
 		opt1Sel=true
 	end
 	if opt4Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt4Sel=false
 		opt3Sel=true
 	end
 	if opt4Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="other"
 		resetOptions()
 	end
@@ -241,35 +279,42 @@ end
 if menuSection == "quit" then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="main"
 		resetOptions()
 	end
 	if opt1Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt2Sel=true
 		opt1Sel=false
 	end
 	if opt1Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt2Sel=true
 		opt1Sel=false
 	end
 	if opt1Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="main"
 		resetOptions()
 	end
 	if opt2Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt1Sel=true
 		opt2Sel=false
 	end
 	if opt2Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt1Sel=true
 		opt2Sel=false
 	end
 	if opt2Sel == true and ePressed == true and canAdvance == true then
+		menuBlipSFX:play()
 		os.exit()
 	end
 	option(opt1Sel,"No","No","NAH",70,300,1.5,100,300,1.5,70,300,1.5)
@@ -280,9 +325,120 @@ end
 
 --# OPTIONS SECTIONS #--
 
+if menuSection == "audio" then
+	if escPressed == true and canAdvance == true then
+		canAdvance=false
+		menuBlipSFX:play()
+		menuSection="options"
+		resetOptions()
+	end
+	if opt1Sel == true and upPressed == true and canAdvance == true then
+		canAdvance=false
+		menuSelectSFX:play()
+		opt3Sel=true
+		opt1Sel=false
+	end
+	if opt1Sel == true and downPressed == true and canAdvance == true then
+		canAdvance=false
+		menuSelectSFX:play()
+		opt2Sel=true
+		opt1Sel=false
+	end
+	if opt1Sel == true and rightPressed == true and masterVol < 100 then
+		if countdown == 8 then
+			masterVol=masterVol+1
+			countdown=countdown-1
+		elseif countdown < 8 and countdown > 0 then
+			countdown=countdown-1
+		elseif countdown == 0 then
+			countdown=8
+		end
+	end
+	if opt1Sel == true and leftPressed == true and masterVol > 0 then
+		if countdown == 8 then
+			masterVol=masterVol-1
+			countdown=countdown-1
+		elseif countdown < 8 and countdown > 0 then
+			countdown=countdown-1
+		elseif countdown == 0 then
+			countdown=8
+		end
+	end
+	if opt2Sel == true and upPressed == true and canAdvance == true then
+		canAdvance=false
+		menuSelectSFX:play()
+		opt1Sel=true
+		opt2Sel=false
+	end
+	if opt2Sel == true and downPressed == true and canAdvance == true then
+		canAdvance=false
+		menuSelectSFX:play()
+		opt3Sel=true
+		opt2Sel=false
+	end
+	if opt2Sel == true and rightPressed == true and musicVol < 100 then
+		if countdown == 8 then
+			musicVol=musicVol+1
+			countdown=countdown-1
+		elseif countdown < 8 and countdown > 0 then
+			countdown=countdown-1
+		elseif countdown == 0 then
+			countdown=8
+		end
+	end
+	if opt2Sel == true and leftPressed == true and musicVol > 0 then
+		if countdown == 8 then
+			musicVol=musicVol-1
+			countdown=countdown-1
+		elseif countdown < 8 and countdown > 0 then
+			countdown=countdown-1
+		elseif countdown == 0 then
+			countdown=8
+		end
+	end
+	if opt3Sel == true and upPressed == true and canAdvance == true then
+		canAdvance=false
+		menuSelectSFX:play()
+		opt2Sel=true
+		opt3Sel=false
+	end
+	if opt3Sel == true and downPressed == true and canAdvance == true then
+		canAdvance=false
+		menuSelectSFX:play()
+		opt1Sel=true
+		opt3Sel=false
+	end
+	if opt3Sel == true and rightPressed == true and soundVol < 100 then
+		if countdown == 8 then
+			soundVol=soundVol+1
+			countdown=countdown-1
+		elseif countdown < 8 and countdown > 0 then
+			countdown=countdown-1
+		elseif countdown == 0 then
+			countdown=8
+		end
+	end
+	if opt3Sel == true and leftPressed == true and soundVol > 0 then
+		if countdown == 8 then
+			soundVol=soundVol-1
+			countdown=countdown-1
+		elseif countdown < 8 and countdown > 0 then
+			countdown=countdown-1
+		elseif countdown == 0 then
+			countdown=8
+		end
+	end
+	option(opt1Sel,"Master Volume:","SPA","NAH",60,60,0.5,60,60,0.5,60,60,0.5)
+	option(opt2Sel,"Music Volume:","SPA","NAH",60,120,0.5,60,60,0.5,60,60,0.5)
+	option(opt3Sel,"Sound Volume:","SPA","NAH",60,180,0.5,60,60,0.5,60,60,0.5)	
+	text(masterVol,masterVol,masterVol,450,60,0.5,450,60,0.5,450,60,0.5)
+	text(musicVol,musicVol,musicVol,450,120,0.5,450,120,0.5,450,120,0.5)
+	text(soundVol,soundVol,soundVol,450,180,0.5,450,180,0.5,450,180,0.5)
+end
 if menuSection == "video" then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="options"
 		resetOptions()
 	end
@@ -293,6 +449,7 @@ if menuSection == "video" then
 				resizeLarge()
 				large=true
 				canAdvance=false
+				menuSelectSFX:play()
 			end
 		end
 	else
@@ -302,6 +459,7 @@ if menuSection == "video" then
 				resizeSmall()
 				large=false
 				canAdvance=false
+				menuSelectSFX:play()
 			end
 		end
 	end
@@ -311,11 +469,13 @@ end
 if menuSection == "other" then
 	if escPressed == true and canAdvance == true and opt2Sel ~= true and opt3Sel ~= true and opt4Sel ~= true then
 		canAdvance=false
+		menuBlipSFX:play()
 		menuSection="options"
 		resetOptions()
 	end
 	if opt1Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
+		menuBlipSFX:play()
 		if language == "Eng" then
 			opt2Sel=true
 		elseif language == "Spa" then
@@ -327,36 +487,42 @@ if menuSection == "other" then
 	end
 	if opt2Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt4Sel=true
 		opt2Sel=false
 		--language="Nah"
 	end
 	if opt2Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt3Sel=true
 		opt2Sel=false
 		language="Spa"
 	end
 	if opt3Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt2Sel=true
 		opt3Sel=false
 		language="Eng"
 	end
 	if opt3Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt4Sel=true
 		opt3Sel=false
 		--language="Nah"
 	end
 	if opt4Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt3Sel=true
 		opt4Sel=false
 		language="Spa"
 	end
 	if opt4Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
+		menuSelectSFX:play()
 		opt2Sel=true
 		opt4Sel=false
 		language="Eng"
@@ -364,11 +530,13 @@ if menuSection == "other" then
 	if opt2Sel == true or opt3Sel == true or opt4Sel == true then
 		if ePressed == true and canAdvance == true then
 			canAdvance=false
+			menuBlipSFX:play()
 			resetOptions()
 			opt1Sel=true
 		end
 		if escPressed == true and canAdvance == true then
 			canAdvance=false
+			menuBlipSFX:play()
 			resetOptions()
 			opt1Sel=true
 		end

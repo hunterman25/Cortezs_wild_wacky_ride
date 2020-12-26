@@ -168,5 +168,15 @@ for i,v in ipairs(processText) do
 		queue("Sel:",selColon)
 		queue("SelSpa!",selSpaExclamation)
 		queue("SelSpa?",selSpaQuestion)
+		queue("0",zero)
+		queue("1",one)
+		queue("2",two)
+		queue("3",three)
+		queue("4",four)
+		queue("5",five)
+		queue("6",six)
+		queue("7",seven)
+		queue("8",eight)
+		queue("9",nine)
 	end
 end

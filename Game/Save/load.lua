@@ -43,6 +43,15 @@ for i,v in ipairs(loadContent) do
 			language="Nah"
 		end
 	end
+	if v == "5" and index == true then
+		masterVol=tonumber(nextVal)
+	end
+	if v == "6" and index == true then
+		musicVol=tonumber(nextVal)
+	end
+	if v == "7" and index == true then
+		soundVol=tonumber(nextVal)
+	end
 
 	--
 	if index == true then
