@@ -21,91 +21,91 @@ end
 if menuSection == "main" then
 	if opt1Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt1Sel=false
 		opt2Sel=true
 	end
 	if opt1Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt1Sel=false
 		opt5Sel=true
 	end
 	if opt1Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="inventory"
 		resetOptions()
 	end
 	if opt2Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt2Sel=false
 		opt3Sel=true
 	end
 	if opt2Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt2Sel=false
 		opt1Sel=true
 	end
 	if opt2Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="player"
 		resetOptions()
 	end
 	if opt3Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt3Sel=false
 		opt4Sel=true
 	end
 	if opt3Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt3Sel=false
 		opt2Sel=true
 	end
 	if opt3Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="save"
 		resetOptions()
 	end
 	if opt4Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt4Sel=false
 		opt5Sel=true
 	end
 	if opt4Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt4Sel=false
 		opt3Sel=true
 	end
 	if opt4Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="options"
 		resetOptions()
 	end
 	if opt5Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt5Sel=false
 		opt1Sel=true
 	end
 	if opt5Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt5Sel=false
 		opt4Sel=true
 	end
 	if opt5Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="quit"
 		resetOptions()
 	end
@@ -122,44 +122,44 @@ end
 if menuSection == "save" then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="main"
 		resetOptions()
 	end
 	if opt1Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt2Sel=true
 		opt1Sel=false
 	end
 	if opt1Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt2Sel=true
 		opt1Sel=false
 	end
 	if opt1Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="saving"
 		resetOptions()
 		saving=true
 	end
 	if opt2Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt1Sel=true
 		opt2Sel=false
 	end
 	if opt2Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt1Sel=true
 		opt2Sel=false
 	end
 	if opt2Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="main"
 		resetOptions()
 	end
@@ -169,23 +169,18 @@ if menuSection == "save" then
 end
 if menuSection == "saving" and saving == true then
 	text("Saving...","Guardando...","NAH",100,200,1,100,200,0.75,100,200,1)
-	--TEMP
-	if love.keyboard.isDown("right") and canAdvance == true then
-		canAdvance=false
-		saveFile()
-	end
-	--TEMP
+	saveFile()
 end
 if menuSection == "saving" and saving == false then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="main"
 		resetOptions()
 	end
 	if ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="main"
 		resetOptions()
 	end
@@ -195,79 +190,79 @@ end
 if menuSection == "options" then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="main"
 		resetOptions()
 	end
 	if opt1Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt1Sel=false
 		opt2Sel=true
 	end
 	if opt1Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt1Sel=false
 		opt4Sel=true
 	end
 	if opt1Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="controls"
 		resetOptions()
 	end
 	if opt2Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt2Sel=false
 		opt3Sel=true
 	end
 	if opt2Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt2Sel=false
 		opt1Sel=true
 	end
 	if opt2Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="audio"
 		resetOptions()
 	end
 	if opt3Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt3Sel=false
 		opt4Sel=true
 	end
 	if opt3Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt3Sel=false
 		opt2Sel=true
 	end
 	if opt3Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="video"
 		resetOptions()
 	end
 	if opt4Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()	
+		playSound(menuSelectSFX)	
 		opt4Sel=false
 		opt1Sel=true
 	end
 	if opt4Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt4Sel=false
 		opt3Sel=true
 	end
 	if opt4Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="other"
 		resetOptions()
 	end
@@ -279,42 +274,42 @@ end
 if menuSection == "quit" then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="main"
 		resetOptions()
 	end
 	if opt1Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt2Sel=true
 		opt1Sel=false
 	end
 	if opt1Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt2Sel=true
 		opt1Sel=false
 	end
 	if opt1Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="main"
 		resetOptions()
 	end
 	if opt2Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt1Sel=true
 		opt2Sel=false
 	end
 	if opt2Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt1Sel=true
 		opt2Sel=false
 	end
 	if opt2Sel == true and ePressed == true and canAdvance == true then
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		os.exit()
 	end
 	option(opt1Sel,"No","No","NAH",70,300,1.5,100,300,1.5,70,300,1.5)
@@ -328,19 +323,19 @@ end
 if menuSection == "audio" then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="options"
 		resetOptions()
 	end
 	if opt1Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt3Sel=true
 		opt1Sel=false
 	end
 	if opt1Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt2Sel=true
 		opt1Sel=false
 	end
@@ -366,13 +361,13 @@ if menuSection == "audio" then
 	end
 	if opt2Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt1Sel=true
 		opt2Sel=false
 	end
 	if opt2Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt3Sel=true
 		opt2Sel=false
 	end
@@ -398,13 +393,13 @@ if menuSection == "audio" then
 	end
 	if opt3Sel == true and upPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt2Sel=true
 		opt3Sel=false
 	end
 	if opt3Sel == true and downPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt1Sel=true
 		opt3Sel=false
 	end
@@ -428,9 +423,9 @@ if menuSection == "audio" then
 			countdown=8
 		end
 	end
-	option(opt1Sel,"Master Volume:","SPA","NAH",60,60,0.5,60,60,0.5,60,60,0.5)
-	option(opt2Sel,"Music Volume:","SPA","NAH",60,120,0.5,60,60,0.5,60,60,0.5)
-	option(opt3Sel,"Sound Volume:","SPA","NAH",60,180,0.5,60,60,0.5,60,60,0.5)	
+	option(opt1Sel,"Master Volume:","Volume:","NAH",60,60,0.5,60,60,0.5,60,60,0.5)
+	option(opt2Sel,"Music Volume:","M{1usica:","NAH",60,120,0.5,60,120,0.5,60,120,0.5)
+	option(opt3Sel,"Sound Volume:","Efectos:","NAH",60,180,0.5,60,180,0.5,60,180,0.5)	
 	text(masterVol,masterVol,masterVol,450,60,0.5,450,60,0.5,450,60,0.5)
 	text(musicVol,musicVol,musicVol,450,120,0.5,450,120,0.5,450,120,0.5)
 	text(soundVol,soundVol,soundVol,450,180,0.5,450,180,0.5,450,180,0.5)
@@ -438,7 +433,7 @@ end
 if menuSection == "video" then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="options"
 		resetOptions()
 	end
@@ -449,7 +444,7 @@ if menuSection == "video" then
 				resizeLarge()
 				large=true
 				canAdvance=false
-				menuSelectSFX:play()
+				playSound(menuSelectSFX)
 			end
 		end
 	else
@@ -459,7 +454,7 @@ if menuSection == "video" then
 				resizeSmall()
 				large=false
 				canAdvance=false
-				menuSelectSFX:play()
+				playSound(menuSelectSFX)
 			end
 		end
 	end
@@ -469,13 +464,13 @@ end
 if menuSection == "other" then
 	if escPressed == true and canAdvance == true and opt2Sel ~= true and opt3Sel ~= true and opt4Sel ~= true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menuSection="options"
 		resetOptions()
 	end
 	if opt1Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		if language == "Eng" then
 			opt2Sel=true
 		elseif language == "Spa" then
@@ -487,42 +482,42 @@ if menuSection == "other" then
 	end
 	if opt2Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt4Sel=true
 		opt2Sel=false
 		--language="Nah"
 	end
 	if opt2Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt3Sel=true
 		opt2Sel=false
 		language="Spa"
 	end
 	if opt3Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt2Sel=true
 		opt3Sel=false
 		language="Eng"
 	end
 	if opt3Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt4Sel=true
 		opt3Sel=false
 		--language="Nah"
 	end
 	if opt4Sel == true and leftPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt3Sel=true
 		opt4Sel=false
 		language="Spa"
 	end
 	if opt4Sel == true and rightPressed == true and canAdvance == true then
 		canAdvance=false
-		menuSelectSFX:play()
+		playSound(menuSelectSFX)
 		opt2Sel=true
 		opt4Sel=false
 		language="Eng"
@@ -530,13 +525,13 @@ if menuSection == "other" then
 	if opt2Sel == true or opt3Sel == true or opt4Sel == true then
 		if ePressed == true and canAdvance == true then
 			canAdvance=false
-			menuBlipSFX:play()
+			playSound(menuBlipSFX)
 			resetOptions()
 			opt1Sel=true
 		end
 		if escPressed == true and canAdvance == true then
 			canAdvance=false
-			menuBlipSFX:play()
+			playSound(menuBlipSFX)
 			resetOptions()
 			opt1Sel=true
 		end

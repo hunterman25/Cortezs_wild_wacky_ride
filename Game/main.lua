@@ -24,7 +24,7 @@ function love.load()
 	dofile("Game\\Text\\loadText.lua")
 	doText=assert(loadfile("Game\\Text\\doText.lua"))
 	printText=assert(loadfile("Game\\Text\\printText.lua"))
-	openMenu=assert(loadfile("Game\\Warehouse\\menu.lua"))
+	openMenu=assert(loadfile("Game\\Menu\\menu.lua"))
 	saveFile=assert(loadfile("Game\\Save\\save.lua"))
 	dofile("Game\\Sound\\loadSound.lua")
 	volControl=assert(loadfile("Game\\Sound\\volControl.lua"))
@@ -38,6 +38,20 @@ function love.load()
 		opt3Sel=false
 		opt4Sel=false
 		opt5Sel=false
+	end
+	function playSound(src)
+		playTable={}
+		if src:isPlaying() == true then
+			table.insert(playTable,src:clone())
+			for i,v in ipairs(playTable) do
+				if playTable[i+1] == nil then
+					v:play()
+				end
+				table.remove(playTable,i)
+			end
+		else
+			src:play()
+		end
 	end
 	function text(engContent,spaContent,nahContent,engX,engY,engSize,spaX,spaY,spaSize,nahX,nahY,nahSize)
 
@@ -207,13 +221,10 @@ function love.update(dt)
 			y=y+5*ratio
 		end
 	end
-	if love.keyboard.isDown("j") then
-		resetText()
-	end
 	local eCheck=love.keyboard.isDown("e")
 	local escCheck=love.keyboard.isDown("escape")
 	if eCheck == true and allowOpen == true and canMenu == true then
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menu=true
 		allowOpen=false
 		canMove=false
@@ -225,7 +236,7 @@ function love.update(dt)
 		allowClose=true
 	end
 	if escCheck == true and allowClose == true and menuSection == "main" and canAdvance == true then
-		menuBlipSFX:play()
+		playSound(menuBlipSFX)
 		menu=false
 		allowClose=false
 		resetText()
@@ -233,15 +244,6 @@ function love.update(dt)
 	end
 	if menu == false and escCheck == false then
 		allowOpen=true
-	end
-	if love.keyboard.isDown("1") then
-		language="Eng"
-	end
-	if love.keyboard.isDown("2") then
-		language="Spa"
-	end
-	if love.keyboard.isDown("3") then
-		language="Nah"
 	end
 end
 
