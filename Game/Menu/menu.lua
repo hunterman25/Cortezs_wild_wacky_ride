@@ -14,6 +14,7 @@ local leftPressed=love.keyboard.isDown("left")
 local rightPressed=love.keyboard.isDown("right")
 local ePressed=love.keyboard.isDown("e")
 local escPressed=love.keyboard.isDown("escape")
+local inventoryFile=assert(loadfile("Game\\Menu\\inventory.lua"))
 if downPressed == false and upPressed == false and leftPressed == false and rightPressed == false and ePressed == false and escPressed == false then
 	canAdvance=true
 	countdown=8
@@ -119,6 +120,15 @@ end
 
 --# MAIN SECTIONS #--
 
+if menuSection == "inventory" then
+	if escPressed == true and canAdvance == true then
+		canAdvance=false
+		playSound(menuBlipSFX)
+		menuSection="main"
+		resetOptions()
+	end
+	inventoryFile()
+end
 if menuSection == "save" then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false

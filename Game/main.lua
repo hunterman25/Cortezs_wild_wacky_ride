@@ -254,6 +254,12 @@ function love.draw() -- DEFAULT SCREEN DIMENSIONS: 600 by 600
 	love.graphics.setColor(255,0,0)
 	love.graphics.rectangle("fill",x,y,50*ratio,50*ratio)
 	--# TEXT #--
+	--DEBUG text("ABCDEFGHIJKLMN","","",10,10,0.5,0,0,0,0,0,0)
+	--DEBUG text("NOPQRSTUVWXYZ","","",10,60,0.5,0,0,0,0,0,0)
+	--DEBUG text("abcdefghijklmn","","",10,110,0.5,0,0,0,0,0,0)
+	--DEBUG text("nopqrstuvwxyz","","",10,160,0.5,0,0,0,0,0,0)
+	--DEBUG text("{1a{1i{1u{1e{1o{1!!{1??:.{1A{1I{1U{1E{1O","","",10,210,0.5,0,0,0,0,0,0)
+	--DEBUG text("{2a{2i{2e{2o{2A{2I{2E{2O","","",10,260,0.5,0,0,0,0,0,0)
 	if menu == true then
 		resetText()
 		openMenu()
@@ -261,4 +267,5 @@ function love.draw() -- DEFAULT SCREEN DIMENSIONS: 600 by 600
 	if printing == true then
 		printText()
 	end
+	resetText()
 end
