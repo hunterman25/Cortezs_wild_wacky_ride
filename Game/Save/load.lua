@@ -52,6 +52,24 @@ for i,v in ipairs(loadContent) do
 	if v == "7" and index == true then
 		soundVol=tonumber(nextVal)
 	end
+	if v == "8" and index == true then
+		rightControl=nextVal
+	end
+	if v == "9" and index == true then
+		leftControl=nextVal
+	end
+	if v == "10" and index == true then
+		upControl=nextVal
+	end
+	if v == "11" and index == true then
+		downControl=nextVal
+	end
+	if v == "12" and index == true then
+		eControl=nextVal
+	end
+	if v == "13" and index == true then
+		escControl=nextVal
+	end
 
 	--
 	if index == true then

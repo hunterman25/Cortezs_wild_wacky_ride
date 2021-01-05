@@ -1,6 +1,6 @@
 love.graphics.setColor(255,255,255,0.5)
 newRectangle(50,50,500,500)
-local function option(optIndex,engDisplay,spaDisplay,nahDisplay,engX,engY,engSize,spaX,spaY,spaSize,nahX,nahY,nahSize)
+function option(optIndex,engDisplay,spaDisplay,nahDisplay,engX,engY,engSize,spaX,spaY,spaSize,nahX,nahY,nahSize)
 	if optIndex == true then
 		text((":" .. engDisplay),(":" .. spaDisplay),(":" .. nahDisplay),engX,engY,engSize,spaX,spaY,spaSize,nahX,nahY,nahSize)
 	end
@@ -8,13 +8,15 @@ local function option(optIndex,engDisplay,spaDisplay,nahDisplay,engX,engY,engSiz
 		text(engDisplay,spaDisplay,nahDisplay,engX,engY,engSize,spaX,spaY,spaSize,nahX,nahY,nahSize)
 	end
 end
-local upPressed=love.keyboard.isDown("up")
-local downPressed=love.keyboard.isDown("down")
-local leftPressed=love.keyboard.isDown("left")
-local rightPressed=love.keyboard.isDown("right")
-local ePressed=love.keyboard.isDown("e")
-local escPressed=love.keyboard.isDown("escape")
+local upPressed=love.keyboard.isDown(upControl)
+local downPressed=love.keyboard.isDown(downControl)
+local leftPressed=love.keyboard.isDown(leftControl)
+local rightPressed=love.keyboard.isDown(rightControl)
+local ePressed=love.keyboard.isDown(eControl)
+local escPressed=love.keyboard.isDown(escControl)
 local inventoryFile=assert(loadfile("Game\\Menu\\inventory.lua"))
+local controlsFile=assert(loadfile("Game\\Menu\\controls.lua"))
+
 if downPressed == false and upPressed == false and leftPressed == false and rightPressed == false and ePressed == false and escPressed == false then
 	canAdvance=true
 	countdown=8
@@ -330,6 +332,15 @@ end
 
 --# OPTIONS SECTIONS #--
 
+if menuSection == "controls" then
+	if escPressed == true and canAdvance == true then
+		canAdvance=false
+		playSound(menuBlipSFX)
+		menuSection="options"
+		resetOptions()
+	end
+	controlsFile()
+end
 if menuSection == "audio" then
 	if escPressed == true and canAdvance == true then
 		canAdvance=false

@@ -6,15 +6,17 @@ if predetermined ~= true then
 end
 local menuSlot=love.graphics.newImage("Menu/menuSlot.png")
 local menuSlotSelected=love.graphics.newImage("Menu/menuSlotSelected.png")
-local upPressed=love.keyboard.isDown("up")
-local downPressed=love.keyboard.isDown("down")
-local leftPressed=love.keyboard.isDown("left")
-local rightPressed=love.keyboard.isDown("right")
-local ePressed=love.keyboard.isDown("e")
-local escPressed=love.keyboard.isDown("escape")
+local upPressed=love.keyboard.isDown(upControl)
+local downPressed=love.keyboard.isDown(downControl)
+local leftPressed=love.keyboard.isDown(leftControl)
+local rightPressed=love.keyboard.isDown(rightControl)
+local ePressed=love.keyboard.isDown(eControl)
+local escPressed=love.keyboard.isDown(escControl)
 if downPressed == false and upPressed == false and leftPressed == false and rightPressed == false and ePressed == false and escPressed == false then
 	canAdvance=true
 end 
+
+--Make separate canAdvance values for each direction! It'll make it easier to navigate the inventory if multiple buttons can be pressed at once
 
 inv={"row1","row2","row3","row4","row5","row6","row7","row8","row9"}
 inv["row1"]={"0","0","0","0","0","0","0","0","0"}

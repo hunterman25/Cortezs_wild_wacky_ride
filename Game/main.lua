@@ -208,21 +208,21 @@ function love.update(dt)
 	volControl()
 	--# CONTROLS #--
 	if canMove == true then
-		if love.keyboard.isDown("left") and x > 0 then
+		if love.keyboard.isDown(leftControl) and x > 0 then
 			x=x-5*ratio
 		end
-		if love.keyboard.isDown("right") and x+50*ratio < 600*ratio then
+		if love.keyboard.isDown(rightControl) and x+50*ratio < 600*ratio then
 			x=x+5*ratio
 		end
-		if love.keyboard.isDown("up") and y > 0 then
+		if love.keyboard.isDown(upControl) and y > 0 then
 			y=y-5*ratio
 		end
-		if love.keyboard.isDown("down") and y+50*ratio < 600*ratio then
+		if love.keyboard.isDown(downControl) and y+50*ratio < 600*ratio then
 			y=y+5*ratio
 		end
 	end
-	local eCheck=love.keyboard.isDown("e")
-	local escCheck=love.keyboard.isDown("escape")
+	local eCheck=love.keyboard.isDown(eControl)
+	local escCheck=love.keyboard.isDown(escControl)
 	if eCheck == true and allowOpen == true and canMenu == true then
 		playSound(menuBlipSFX)
 		menu=true

@@ -20,6 +20,12 @@ end
 saveAdd(5,masterVol)
 saveAdd(6,musicVol)
 saveAdd(7,soundVol)
+saveAdd(8,rightControl)
+saveAdd(9,leftControl)
+saveAdd(10,upControl)
+saveAdd(11,downControl)
+saveAdd(12,eControl)
+saveAdd(13,escControl)
 
 --
 saveContent=(saveContent .. "%")
