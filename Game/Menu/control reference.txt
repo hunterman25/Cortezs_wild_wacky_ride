@@ -1,0 +1,16 @@
+if opt#Sel == true and ePressed == true and canAdvance == true then
+	temp____Control="[Assign Key]"
+	selecting=true
+	canAdvance=false
+end
+if opt#Sel == true and selecting == true then
+	if checkKeyDown() ~= nil then
+		temp____Control=checkKeyDown()
+		____Control=checkKeyDown()
+		selecting=false
+	end
+end
+if opt#Sel == true and selecting == true and escPressed == true then
+	temp____Control=____Control
+	selecting=false
+end

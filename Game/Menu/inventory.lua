@@ -12,9 +12,6 @@ local leftPressed=love.keyboard.isDown(leftControl)
 local rightPressed=love.keyboard.isDown(rightControl)
 local ePressed=love.keyboard.isDown(eControl)
 local escPressed=love.keyboard.isDown(escControl)
-if downPressed == false and upPressed == false and leftPressed == false and rightPressed == false and ePressed == false and escPressed == false then
-	canAdvance=true
-end 
 
 --Make separate canAdvance values for each direction! It'll make it easier to navigate the inventory if multiple buttons can be pressed at once
 

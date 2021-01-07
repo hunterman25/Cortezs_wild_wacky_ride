@@ -17,7 +17,7 @@ local escPressed=love.keyboard.isDown(escControl)
 local inventoryFile=assert(loadfile("Game\\Menu\\inventory.lua"))
 local controlsFile=assert(loadfile("Game\\Menu\\controls.lua"))
 
-if downPressed == false and upPressed == false and leftPressed == false and rightPressed == false and ePressed == false and escPressed == false then
+if downPressed == false and upPressed == false and leftPressed == false and rightPressed == false and ePressed == false and escPressed == false and selecting ~= true then
 	canAdvance=true
 	countdown=8
 end
@@ -221,6 +221,7 @@ if menuSection == "options" then
 	if opt1Sel == true and ePressed == true and canAdvance == true then
 		canAdvance=false
 		playSound(menuBlipSFX)
+		setTempControls=true
 		menuSection="controls"
 		resetOptions()
 	end
@@ -333,12 +334,6 @@ end
 --# OPTIONS SECTIONS #--
 
 if menuSection == "controls" then
-	if escPressed == true and canAdvance == true then
-		canAdvance=false
-		playSound(menuBlipSFX)
-		menuSection="options"
-		resetOptions()
-	end
 	controlsFile()
 end
 if menuSection == "audio" then
